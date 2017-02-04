@@ -1,0 +1,47 @@
+<?= $this->doctype() //$this->url('home')         ?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?= $this->headTitle('Tribunal de Conciliación y Arbitraje del Estado de Michoacán')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?=
+                $this->headMeta()
+                ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+                ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Le styles -->
+        <?=
+        // image/vnd.microsoft.icon   $this->basePath() . '/img/favicon.ico' 
+                $this->headLink(['rel' => 'shortcut icon', 'type' => '', 'href' => ''])
+                ->prependStylesheet($this->basePath('css/style.css'))
+                ->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+                ->prependStylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+                ->prependStylesheet('https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css')
+        ?>
+
+        <!-- Scripts -->
+        <?=
+                $this->headScript()
+                ->prependFile('https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
+                ->prependFile('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+                ->prependFile('https://use.fontawesome.com/d9308c50ab.js')
+                ->prependFile('https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+                ->prependFile('https://fonts.googleapis.com/css?family=Oswald')
+        ?>
+    </head>
+    <script>
+        var height, width = 0;
+        $(document).ready(function () {
+            console.log(height = $(window).height());
+            console.log(width = $(window).width());
+            $('img').css({'width': width, 'height': height});
+        });
+    </script>
+    <body>
+        <div class="container-fluid" style="max-height: 600px; height: 600px;">
+            <?= $this->content ?>
+        </div>
+        <?= $this->inlineScript() ?>
+    </body>
+</html>
